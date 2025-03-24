@@ -1,0 +1,59 @@
+ol {
+    color: red;
+  }
+
+  p {
+    color: blue;
+    width: 500px;
+    border: 1px solid black;
+    
+  }
+
+
+ul,
+h1 {
+  color: blueviolet;
+}
+
+a:hover{
+    color:cyan
+}
+/* setting the font size and type (the type being specified in the index.html file as a link) */
+/* putting html as the selector here changes all of the text in the entire html file */
+html {
+    /* font-size: 10px; px means "pixels": the base font size is now 10 pixels high */
+    font-family:
+      "Open Sans", sans-serif; /* this should be the rest of the output you got from Google Fonts */
+  }
+
+/* setting the font sizes and alingments for various elements */
+  h1 {
+    font-size: 60px;
+    text-align: center;
+  }
+  
+  p,
+  li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+
+  
+  html {
+    background-color: #5e6973;
+  }
+
+  body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #ff9500;
+    padding: 0 100px 100px 100px;
+    border: 5px solid black;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
