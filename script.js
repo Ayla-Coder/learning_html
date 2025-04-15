@@ -2,7 +2,7 @@
 
 function createParagraph() {
   const para = document.createElement("p");
-  para.textContent = "Button!";
+  para.textContent = "why???";
   document.body.appendChild(para);
 }
 
