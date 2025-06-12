@@ -4,21 +4,32 @@
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Apply formbricks example</title>
+    <title>Apply google sheets custom form</title>
 
-    <!-- START Formbricks Surveys -->
-  <script type="text/javascript">
-    !function(){
-        var appUrl = "https://app.formbricks.com";
-        var environmentId = "cmbrsu43wjea8xi01tcdbly18";
-        var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=appUrl+"/js/formbricks.umd.cjs",t.onload=function(){window.formbricks?window.formbricks.setup({environmentId:environmentId,appUrl:appUrl}):console.error("Formbricks library failed to load properly. The formbricks object is not available.");};var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();
-    </script>
-    <!-- END Formbricks Surveys -->
-  
-    
   </head>
 <body>
-<p>hello world! </p>
+<p>hello world! 
+</p>
+
+<form id="myForm">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<script>
+  document.getElementById('myForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const response = await fetch('YOUR_APPS_SCRIPT_URL', {
+      method: 'POST',
+      body: JSON.stringify(Object.fromEntries(formData))
+    });
+    if (response.ok) alert('Submitted!');
+  });
+</script>
+
 
 </body>
 </html>
