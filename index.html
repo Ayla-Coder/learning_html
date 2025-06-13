@@ -5,31 +5,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Apply google sheets custom form</title>
+    <base target="_top" />
 
   </head>
 <body>
 <p>hello world! 
 </p>
-<!-- deployment id = AKfycbw97O4EdBrRoimjhi9T3QfscSssiaPneuFHvVG0y4DkCEdXBccGpjrwl9LFVp7H_WsS -->
-<form id="myForm">
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Message" required></textarea>
-  <button type="submit">Send</button>
-</form>
-
-<script>
-  document.getElementById('myForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const response = await fetch('YOUR_APPS_SCRIPT_URL', {
-      method: 'POST',
-      body: JSON.stringify(Object.fromEntries(formData))
-    });
-    if (response.ok) alert('Submitted!');
-  });
-</script>
-
-
-</body>
+    <form>
+      Text1: <input type="text" name="sampleText1" /><br />
+      Text2: <input type="text" name="sampleText2" /><br />
+      <select name="sampleDropdown1">
+        <option value="sampleOption1">sample1</option>
+        <option value="sampleOption2">sample2</option>
+        <option value="sampleOption3">sample3</option>
+      </select>
+      File: <input type="file" name="sampleFiles" multiple /><br />
+      <input
+        type="submit"
+        name="button"
+        value="submit"
+        onclick="run(this);return false;"
+      />
+    </form>
+    <script src="https://cdn.jsdelivr.net/gh/tanaikech/HtmlFormObjectParserForGoogleAppsScript_js/htmlFormObjectParserForGoogleAppsScript_js.min.js"></script>
+    <script>
+      async function run(e) {
+        const obj = await ParseFormObjectForGAS(e.parentNode, null, null, true);
+        google.script.run
+          .withFailureHandler((err) => console.log(err.message))
+          .withSuccessHandler((res) => console.log(res))
+          .main(obj);
+      }
+    </script>
+  </body>
 </html>
