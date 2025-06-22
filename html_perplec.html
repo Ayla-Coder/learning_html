@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> </head>
+    <body>
+        <form> 
+
+            <fieldset>
+                <legend><h2>Guest Info:</h2></legend>
+                <label for="guestNR">How many guests from your group are coming (including children)?</label>
+                <input type="number" min=1 max=10 id="guestNR"/>
+                <br><br>
+
+                <div id="gInfo" style="display:none">
+                    
+
+                </div>
+
+                <br><br>
+                <div id="testArray" style="display:none">
+                    <input type="button" id="testbtn" value="Click me to see if the GuestInfoStorage array works"/>
+                    <input type="button" id="Next2" value="Next"/>  
+                </div>
+
+            </fieldset>
+
+            <fieldset id="Menu" style="display:none">
+                <legend><h2>Menu</h2></legend>
+                <p>The main course will likely be beef. We will update our website with the chosen menu when we know more, but this won't be until 2026. </p>
+
+                <div id="guestMeals">
+                </div>
+                
+                <br><br>
+                <div id="testMealArray" style="display:none">
+                    <input type="button" id="testMealbtn" value="Click me to see if the MealInfoStorage array works"/>
+                    <input type="button" id="Next3" value="Next"/>
+                </div>
+            </fieldset>
+
+            <fieldset id="Bus" style="display:none">
+                <legend><h2>Will any of you be taking the bus? What time?</h2></legend>
+                <p>Remember that we will ask that you pay a small sum of money to cover some of the cost of hiring the bus. We will keep this under
+                    the price of hiring a taxi, which are notoriously expensive in Norway, though this is always an option. As for payment options, 
+                    I'll set that up on the website asap. 
+
+                    Again, we aren't 100% sure about the times for the bus yet, or if we'll hire one for both pick-up and drop-off. It all depends on 
+                    the amount of people who want/need to take the bus. All of this info will be posted to the website as soon as we know more.</p>
+                
+                <div id="BussInf">
+                </div>
+
+                <br><br>
+                <div id="testBusArray" style="display:none">
+                    <input type="button" id="testBusbtn" value="Click me to see if the BusInfoStorage array works"/>
+                    <input type="button" id="Next4" value="Next"/>
+                </div>
+
+            </fieldset>
+
+            <fieldset id="Drinks" style="display:none">
+                <legend><h2>Drink Vouchers</h2></legend>
+
+                <p>Due to limited space and to save time (and because of the alcohol-serving laws in Norway), instead of having a normal bar
+                    set-up we have to use drink-vouchers. These will be sold in packs of three on our website, and will be purchaseable using 
+                    Vipps (Norway), Paypal and bank transfers. We ask that you buy these in advance, both to save time and so that we get a 
+                    good idea of how many vouchers we will need and how many drinks we will need to provide. we will also set things up so that 
+                    you can purchase some on-site as a last resort.<b>We will of course cover the welcome-drinks and wine with dinner.</b>
+                </p>
+                <div class="container4">
+
+                    <div>
+                        <b>I will set up the payment options via this website as soon as possible.</b>
+                    </div>
+                    <div>
+                        <button id="openDialogBtn" type="button">More info</button>
+                    </div>
+                 </div>
+                <dialog id="drinkInfo">
+                    <h3>Drink menu</h3>
+                    <p>
+                        We are currently working on a drink menu that we will post to the website at some point. What we do know so far, is that 
+                        we want to provide exciting mixed drinks with equally exciting <i>alcohol-free</i> versions! <br> <br>
+                        Again, we haven't landed on the exact menu yet, but we know we want to serve piña coladas and margaritas made in a slushie 
+                        machine, as well as beer, wine and maybe some home-brewed hard cider and beer too. 
+                        <br>
+                    </p>
+                    <button class="close-btn" id="closeDialogBtn" type="button">Close</button>
+                  </dialog>
+                  <p></p>
+             
+                <div id="DrinkNext">
+                </div>
+                <div id="Next5" style="display:none">
+                    <input type="button" id="btn5" value="Next" />
+                </div>
+                
+            </fieldset>
+
+            <fieldset id="End" style="display:none">
+                <legend>Any questions?</legend>
+               
+                <label for="Questions">Please write any questions you have here and we will get back to you as soon as possible!</label><br>
+                <input type="text" id="Questions" name="longAns"/>
+                <submit></submit>
+            </fieldset>
+        </form>
+        <script>src="script_perplec.js"</script>
+    </body>
+</html>
