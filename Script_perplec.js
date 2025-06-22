@@ -1,4 +1,5 @@
-
+ <!-- <script src="building_own_code.js"></script> -->
+        <script>
             const guests = document.getElementById("guestNR");
             const testbtn = document.getElementById("testbtn");
             const testArrayDiv = document.getElementById("testArray");
@@ -234,7 +235,7 @@
                     let plus1Name = GuestInfoStorage[i].plusOneName || ""; // If undefined, use ""
 
                     //Steps 5-6 and 8-9 happens inside of createMealSection: 
-                    let [dynamicSection, temporaryMealStorage, UserAnswers] = createMealSection(GuestName);
+                    let [dynamicSection, temporaryMealStorage, UserAnswers] = createMealSection(guestName);
                    
                     //Step 7: append the newly generated dynamic form-object to the document (in this case it's created in the createMealSection function)
                     guestMealsDiv.appendChild(dynamicSection);
@@ -476,9 +477,13 @@
                     mealInfo.allergenChoice = checkedAllergens;
                     
                     // Checks that the severity has been selected when the allergy check box next to it is selected.
-                    let checkedSeverities = Array.from(severityChoice).map(sel => sel.value);
+                    let checkedSeverities = Array.from(severityChoice)
+                        .filter(sel => sel.value === "--severity--" ? "" : this.value)
+                        .map(sel => sel.value);
+                
                     mealInfo.severityChoice = checkedSeverities;
                 };
+
 
                 allergenChoice.forEach(function(cb) {
                     cb.addEventListener("change", updateAllergenChoice);
@@ -748,8 +753,6 @@
                 return section;
             }
 
-           
- 
             //universal validation function
             function validateInfo(infoList, schema) {
                 // for i in range(0, len(infoList), 1):
@@ -860,9 +863,3 @@
             Next5.addEventListener("click", function(){
                 document.getElementById("End").style.display = "block"
             });
-
-            
-            //Next2.addEventListener("click", updateMeal);
-
-            //Next3.addEventListener("click", updateBus);
-            
