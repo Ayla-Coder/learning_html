@@ -1,5 +1,3 @@
- <!-- <script src="building_own_code.js"></script> -->
-        <script>
             const guests = document.getElementById("guestNR");
             const testbtn = document.getElementById("testbtn");
             const testArrayDiv = document.getElementById("testArray");
@@ -9,7 +7,6 @@
 
             const testBusbtn = document.getElementById("testBusbtn");
             const testBusArray = document.getElementById("testBusArray");
-
              // more info button
             const dialog = document.getElementById('drinkInfo'); // retrieves the drinkInfo element
             const openBtn = document.getElementById('openDialogBtn'); //retrieves the openDialog button
@@ -49,9 +46,6 @@
                 { field: "busTimes",  if: {field: "busAnswer", value: "Yes"}, message: "Please pick a bus time for Guest {n}" },
                 { field: "busTimes", if: { field: "timeSelected", value: "true" }, message: "Please enter a suggested time for Guest {n}" },
             ]; 
-
-            
-
 // Functions:
 //--------------------------------------------------------------
 
@@ -69,16 +63,8 @@
 
                 // Step 1: Save a copy of old data
                 oldGuestInfo = [...GuestInfoStorage];
-                //oldMealInfo = [...MealInfoStorage];
-                //oldBusInfo = [...BusInfoStorage];
-                //oldQuestion = [...QuestionInfoStorage];
-
                 //Step 2: wipe the current Storage list to avoid duplicates
-                GuestInfoStorage = []; 
-                //MealInfoStorage = [];
-                //BusInfoStorage = [];
-                //QuestionInfoStorage = [];
-
+                GuestInfoStorage = [];
                 counting = guests.value; // redefines counting to match the number of guests entered by the user. 
                 
                 //Step 3: wipe all previously generated form elements (gInfo in this case)
@@ -302,8 +288,6 @@
                     mealInfo.otherAllergens = oldData.otherAllergens || "";
                 }
             }; // end of function
-
-
 // Helper function for updateMeal that creates the content for each guest and/or plus one entered in the first question
             function createMealSection(personName) {
                 //Step 5: create empty local storage object
@@ -483,8 +467,6 @@
                 
                     mealInfo.severityChoice = checkedSeverities;
                 };
-
-
                 allergenChoice.forEach(function(cb) {
                     cb.addEventListener("change", updateAllergenChoice);
                 });
@@ -514,8 +496,6 @@
             //returns the new div element section 
             return [section, mealInfo, UserAnswers];
             };
-
-
 // creates the bus input fields for each guest based on the first question
             function updateBus (){
                 document.getElementById("Drinks").style.display = "none"; //hides the drinks section if it was previously filled out
@@ -690,9 +670,7 @@
                     BusInfoStorage.push(busInfo)
                 }
                 return section;
-            }
-
-  
+            }  
             //drinks function
             function updateDrinks (){
                 document.getElementById("DrinkNext").innerHTML = ''; //deletes the html content of the DrinkNext element.
@@ -804,13 +782,6 @@
                 console.log(BusInfoStorage);
                 alert(JSON.stringify(BusInfoStorage, null, 2));
              });
-
-            //document.getElementById("Next2").addEventListener("click", function() {
-            //    if (validateInfo(GuestInfoStorage, guestInfoSchema)) {
-            //        updateMeal();
-            //    }
-            //});
-
             document.getElementById("Next2").addEventListener("click", function() {
                 if (validateInfo(GuestInfoStorage, guestInfoSchema)) {
                     console.log("Validation passed!");
@@ -819,9 +790,6 @@
                     console.log("Validation failed!");
                 }
             });
-
-
-
             document.getElementById("Next3").addEventListener("click", function() {
                 if (validateInfo(MealInfoStorage, mealInfoSchema)) {
                     updateBus();
@@ -832,11 +800,8 @@
                 if (validateInfo(BusInfoStorage, busInfoSchema)) {
                     updateDrinks();
                 }
-            })
-            
-            //Next4.addEventListener("click", updateDrinks);
-
-            // adds an eventlistener to the open dialog button that shows the drinkInfo element usig showModal
+            };
+// adds an eventlistener to the open dialog button that shows the drinkInfo element usig showModal
             openBtn.addEventListener('click', function() {
                 dialog.showModal(); // showModal shows a text box that overlays the rest of the webpage, making that webpage inactive until the modal is closed again.
             });
